@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Elite</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            font-family: Castellar, serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .welcome-message {
+            display: none;
+            font-size: 48px;
+            animation: fade 5s;
+        }
+        
+        @keyframes fade {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            30% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            height: 100%;
+        }
+        
+        .button {
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+        
+        .button:hover {
+            transform: scale(1.1);
+        }
+        
+        .fiesta-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .fiesta-item {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="welcomeMessage" class="welcome-message"></div>
+        <div class="buttons" style="display: none;">
+            <button class="button" onclick="showFiestas()">Fiestas disponibles</button>
+            <div id="fiestasContainer" style="display: none;">
+                <ul class="fiesta-list">
+                    <li class="fiesta-item">Fiesta en Sabaneta</li>
+                    <li class="fiesta-item">Fiesta en la Estrella</li>
+                    <li class="fiesta-item">Fiesta en Envigado</li>
+                </ul>
+                <button class="button" onclick="goBack()">Volver</button>
+            </div>
+        </div>
+        <div class="buttons" style="display: none;">
+            <button class="button" onclick="showReseñas()">ver fiestas disponibles</button>
+            <button class="button" onclick="showQuienesSomos()">Quienes somos</button>
+            <button class="button" onclick="publicaTuFiesta()">Publica tu fiesta</button>
+        </div>
+    </div>
+
+    <script>
+        // Obtener el parámetro de la URL que contiene el nombre de usuario
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        // Mostrar el mensaje de bienvenida
+        if (username) {
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            welcomeMessage.textContent = `¡Bienvenido ${username}!`;
+
+            // Mostrar el mensaje
+            welcomeMessage.style.display = 'block';
+
+            // Ocultar el mensaje después de 5 segundos
+            setTimeout(() => {
+                welcomeMessage.style.display = 'none';
+
+                // Mostrar los botones de fiestas disponibles
+                const fiestasButtons = document.querySelector('.buttons:first-child');
+                fiestasButtons.style.display = 'flex';
+
+                // Mostrar los botones adicionales en la ventana de inicio
+                const inicioButtons = document.querySelector('.buttons:last-child');
+                inicioButtons.style.display = 'flex';
+            }, 5000);
+        }
+        
+        function showFiestas() {
+            const fiestasContainer = document.getElementById('fiestasContainer');
+            fiestasContainer.style.display = 'block';
+        }
+        
+        function goBack() {
+            const fiestasContainer = document.getElementById('fiestasContainer');
+            fiestasContainer.style.display = 'none';
+        }
+        
+        function showReseñas() {
+            // Agrega el código para mostrar las reseñas de fiestas pasadas aquí
+        }
+        
+        function showQuienesSomos() {
+            // Agrega el código para mostrar la información de "Quienes somos" aquí
+        }
+        
+        function publicaTuFiesta() {
+            // Agrega el código para mostrar el formulario de "Publica tu fiesta" aquí
+        }
+    </script>
+</body>
+
+</html>

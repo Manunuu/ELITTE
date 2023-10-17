@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Full Stack Page</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="welcomeMessage" class="welcome-message"></div>
+            
+            <div class="buttons" style="display: none;">
+                <button class="button" onclick="showFiestas()">Fiestas disponibles</button>
+                <div id="fiestasContainer" style="display: none;">
+                    <ul class="fiesta-list">
+                        <li class="fiesta-item">Fiesta en Sabaneta</li>
+                        <li class="fiesta-item">Fiesta en la Estrella</li>
+                        <li class="fiesta-item">Fiesta en Envigado</li>
+                    </ul>
+                    <button class="button" onclick="goBack()">Volver</button>
+                </div>
+            </div>
+            
+            <div class="buttons" style="display: none;">
+                <button class="button" onclick="showReseñas()">Reseñas de fiestas pasadas</button>
+                <button class="button" onclick="showQuienesSomos()">Quienes somos</button>
+                <button class="button" onclick="publicaTuFiesta()">Publica tu fiesta</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
